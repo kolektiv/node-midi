@@ -187,9 +187,9 @@ public:
     ~NodeMidiInput()
     {
         in->closePort();
-        delete &message_async;
-        delete in;
         pthread_mutex_destroy(&message_mutex);
+        // delete &message_async;
+        delete in;
     }
     
     static void EmitMessage(uv_async_t *w, int status)
